@@ -6,6 +6,8 @@ Discord Rich Presence integration for DaVinci Resolve on Windows. Runs silently 
 
 **[Download the latest installer](https://github.com/elpideus/DavinciResolveRPC/releases/latest/download/DaVinciResolveRPC-Setup.exe)**
 
+![Discord Rich Presence preview](assets/discord_preview.png)
+
 ## Features
 
 - Displays the active DaVinci Resolve project name and current timeline on Discord
