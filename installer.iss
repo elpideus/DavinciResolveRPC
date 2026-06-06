@@ -3,7 +3,7 @@
 ; Compile after running build.bat
 
 #define AppName "DaVinci Resolve RPC"
-#define AppVersion "1.0.0"
+#define AppVersion "1.0.1"
 #define AppExe "DaVinciResolveRPC.exe"
 #define AppPublisher "DaVinci Resolve RPC"
 

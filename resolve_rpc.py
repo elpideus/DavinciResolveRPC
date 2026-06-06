@@ -25,14 +25,14 @@ except ImportError:
     sys.exit("Missing dependency: pip install pystray Pillow")
 
 
-VERSION = "1.0.0"
+VERSION = "1.0.1"
 DISCORD_CLIENT_ID = "1511200740562047026"
 
 RESOLVE_SCRIPT_MODULE = Path(
     r"C:\ProgramData\Blackmagic Design\DaVinci Resolve\Support\Developer\Scripting\Modules"
 )
 
-POLL_INTERVAL = 15  # seconds between updates
+POLL_INTERVAL = 20  # seconds between updates
 
 
 def load_resolve_module():
