@@ -2,6 +2,10 @@
 
 Discord Rich Presence integration for DaVinci Resolve on Windows. Runs silently in the system tray and shows your current project and timeline on your Discord profile in real time.
 
+## Download
+
+**[Download the latest installer](https://github.com/elpideus/DavinciResolveRPC/releases/latest/download/DaVinciResolveRPC-Setup.exe)**
+
 ## Features
 
 - Displays the active DaVinci Resolve project name and current timeline on Discord
