@@ -1,0 +1,53 @@
+name: Build and Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install pypresence psutil pystray Pillow pyinstaller
+
+      - name: Generate icon
+        run: python generate_icon.py
+
+      - name: Build executable
+        run: |
+          pyinstaller `
+            --onefile `
+            --windowed `
+            --name "DaVinciResolveRPC" `
+            --icon "icon.ico" `
+            --add-data "icon.ico;." `
+            resolve_rpc.py
+
+      - name: Install Inno Setup
+        run: choco install innosetup --yes --no-progress
+
+      - name: Build installer
+        run: '& "C:\Program Files (x86)\Inno Setup 6\ISCC.exe" installer.iss'
+        shell: pwsh
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            dist/DaVinciResolveRPC.exe
+            installer_output/DaVinciResolveRPC-Setup.exe
+          generate_release_notes: true
