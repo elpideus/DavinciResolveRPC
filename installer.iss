@@ -1,5 +1,5 @@
 ; Inno Setup script for DaVinci Resolve RPC
-; Requires Inno Setup 6+ — https://jrsoftware.org/isinfo.php
+; Requires Inno Setup 7+ — https://jrsoftware.org/isdl.php
 ; Compile after running build.bat
 
 #define AppName "DaVinci Resolve RPC"

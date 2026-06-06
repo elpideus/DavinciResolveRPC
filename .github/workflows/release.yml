@@ -19,7 +19,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.11"
+          python-version: "3.14"
 
       - name: Install dependencies
         run: pip install pypresence psutil pystray Pillow pyinstaller
@@ -38,10 +38,10 @@ jobs:
             resolve_rpc.py
 
       - name: Install Inno Setup
-        run: choco install innosetup --yes --no-progress
+        run: choco install innosetup --version 7.0.0 --yes --no-progress
 
       - name: Build installer
-        run: '& "C:\Program Files (x86)\Inno Setup 6\ISCC.exe" installer.iss'
+        run: '& "C:\Program Files (x86)\Inno Setup 7\ISCC.exe" installer.iss'
         shell: pwsh
 
       - name: Create GitHub Release

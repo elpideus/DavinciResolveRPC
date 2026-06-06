@@ -30,7 +30,7 @@ Discord Rich Presence integration for DaVinci Resolve on Windows. Runs silently 
 
 ## How It Works
 
-The application polls DaVinci Resolve every 15 seconds via the official [Blackmagic Design Scripting API](https://documents.blackmagicdesign.com/DaVinciResolve/20230706-7c921a1c/DaVinci_Resolve_17_Scripting_Guide.pdf). When Resolve is detected it establishes a Discord Rich Presence connection and updates your status with:
+The application polls DaVinci Resolve every 20 seconds via the official [Blackmagic Design Scripting API](https://documents.blackmagicdesign.com/DaVinciResolve/20230706-7c921a1c/DaVinci_Resolve_17_Scripting_Guide.pdf). When Resolve is detected it establishes a Discord Rich Presence connection and updates your status with:
 
 - **Details** — current project name (e.g. `Project: My Film`)
 - **State** — active timeline name (e.g. `Timeline: Assembly Cut`)
@@ -42,8 +42,8 @@ When Resolve is closed the presence is cleared automatically.
 
 ### Prerequisites
 
-- Python 3.11+
-- [Inno Setup 6](https://jrsoftware.org/isinfo.php) (for the installer)
+- Python 3.14+
+- [Inno Setup 7](https://jrsoftware.org/isdl.php) (for the installer)
 
 ### Steps
 
@@ -58,24 +58,10 @@ build.bat
 This produces `dist\DaVinciResolveRPC.exe`. To create the installer, compile `installer.iss` with Inno Setup:
 
 ```bat
-"C:\Program Files (x86)\Inno Setup 6\ISCC.exe" installer.iss
+"C:\Program Files (x86)\Inno Setup 7\ISCC.exe" installer.iss
 ```
 
 The installer appears in `installer_output\DaVinciResolveRPC-Setup.exe`.
-
-### Automated Releases
-
-Pushing a tag of the form `v*` (e.g. `v1.0.0`) triggers the GitHub Actions workflow which builds the executable and installer on a Windows runner and attaches them to a GitHub Release automatically.
-
-## Configuration
-
-All configuration lives at the top of `resolve_rpc.py`:
-
-| Constant | Default | Description |
-|---|---|---|
-| `DISCORD_CLIENT_ID` | `1511200740562047026` | Discord application client ID |
-| `RESOLVE_SCRIPT_MODULE` | Standard Blackmagic path | Path to the DaVinciResolveScript module |
-| `POLL_INTERVAL` | `15` | Seconds between presence updates |
 
 ## License
 
