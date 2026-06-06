@@ -2,8 +2,6 @@
 
 Discord Rich Presence integration for DaVinci Resolve on Windows. Runs silently in the system tray and shows your current project and timeline on your Discord profile in real time.
 
-![Discord Rich Presence preview showing project and timeline name](.github/preview.png)
-
 ## Features
 
 - Displays the active DaVinci Resolve project name and current timeline on Discord
